@@ -134,7 +134,7 @@
 	                .accessTokenConverter(jwtAccessTokenConverter());
 	    }
 		
-2. 非对称加密
+2. RSA加密
 
 >  `keytool -genkeypair -alias test-jwt -keyalg RSA -keypass 123456 -keystore test-jwt.jks -storepass 123456` 生成jks文件
 
