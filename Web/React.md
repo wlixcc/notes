@@ -169,3 +169,23 @@
 	
 	> not valid
 	1. return error message
+
+# 9.Material UI
+1. 使用`<CssBaseline/>`清除页面间隙等
+
+2. [icon](https://material.io/tools/icons/?style=baseline)
+
+	
+# Usage
+
+>`create-react-app projectname`
+>`npm install --save axios`
+>`npm install --save redux react-redux`
+>`npm install --save redux-thunk`
+>`npm install --save react-router-dom`
+>`npm install @material-ui/core`
+>`npm install @material-ui/icons`
+>`npm install classnames --save`
+
+- `npm install --save axios redux react-redux redux-thunk react-router-dom @material-ui/core @material-ui/icons classnames`
+- [redux-devtool](https://github.com/zalmoxisus/redux-devtools-extension)
