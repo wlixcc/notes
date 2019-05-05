@@ -71,9 +71,20 @@
 
 - [jpa-and-hibernate-cascade-types](https://vladmihalcea.com/a-beginners-guide-to-jpa-and-hibernate-cascade-types/)
 
-#### 1. OneToOne - Cascade Types
+	- `PERSIST`-> 若对象存储,关联对象也会被存储
+	- `REMOVE`-> 删除
+	- `REFRESH`-> 更新
+	- `DETACH` 
+	- `MERGE`
+	- `ALL`
+	- default,no cascaded
+- [@JoinColumn](https://stackoverflow.com/questions/11938253/whats-the-difference-between-joincolumn-and-mappedby-when-using-a-jpa-onetoma)
+- `Uni-Directional`,`Bi-Directional`
+- [示例](http://docs.jboss.org/hibernate/core/3.6/reference/en-US/html/collections.html#d0e11155)
 
-1. [@JoinColumn](https://stackoverflow.com/questions/11938253/whats-the-difference-between-joincolumn-and-mappedby-when-using-a-jpa-onetoma)
+#### 1. OneToOne
+
+1. `Instructor`-> `InstructorDetail`
 
 		@Entity
 		@Table(name="instructor")
@@ -85,8 +96,9 @@
 			private InstructorDetail instructorDetail;
 		}
 		
-#### 2. OneToMany
+#### 2. OneToMany & ManyToOne
 
+1. `Instructor` -> `course`
 		
 		@Entity
 		@Table(name="instructor")
@@ -99,10 +111,11 @@
 		
 		}
 		
-#### 3. ManyToOne
-
+		
+2. Inverse  `course` -> `Instructor`
 			
-		public class Course {
+			
+			public class Course {
 			...
 			@ManyToOne(cascade={CascadeType.PERSIST,CascadeType.MERGE,
 			CascadeType.DETACH,CascadeType.REFRESH})
@@ -110,6 +123,12 @@
 			private Instrucotr instructor;
 			...
 		}	
+		
+#### 3.  Many to Many
+
+1. `student`<------>`course`
+
+			
 
 ## 3.AOP
 
@@ -265,6 +284,9 @@
 ## Projcet
 1. [spring-boot-rest-api-tutorial-with-mysql-jpa-hibernate](https://www.callicoder.com/spring-boot-rest-api-tutorial-with-mysql-jpa-hibernate/)
 2. [jwt-role-based-authorization](https://medium.com/@xoor/jwt-authentication-service-44658409e12c)
-3. [Oauth2-Stateless-Authentication-with-Spring-and-JWT-Token](https://github.com/tinmegali/Oauth2-Stateless-Authentication-with-Spring-and-JWT-Token)		
+3. [Oauth2-Stateless-Authentication-with-Spring-and-JWT-Token](https://github.com/tinmegali/Oauth2-Stateless-Authentication-with-Spring-and-JWT-Token)	
+
+
+
 
 	
