@@ -229,3 +229,49 @@
 		    }
 		}
 2. 如果是计算密集型任务,使用stream并行流。 如果是IO密集型,使用CompletableFuture并创建线程池。
+
+## 10.新的日期和时间API
+
+1. `LocalDate` & `LocalTime`
+
+		//2014-3-18
+        LocalDate date = LocalDate.of(2014, 3, 18);
+        //today
+        LocalDate today = LocalDate.now();
+        //string -> date
+        LocalDate date = LocalDate.parse("2014-3-18");
+
+        LocalTime time = LocalTime.parse("13:15:12");
+        
+2. `LocalDateTime`是时间和日期的复合, 不带时区信息
+
+		LocalDateTime localDateTime = LocalDateTime.now();
+
+3. 获取当前11位unix时间戳(毫秒)
+
+		Instant.now();
+		
+4. 使用`Duration`获取时间间隔
+
+		//相差1分钟
+		Duration duration = Duration.between(Instant.now().minusSeconds(60),Instant.now());
+       	System.out.println(duration.toMinutes());
+       	
+5. 修改日期,这些对象不可变,操作后会返回一个新的对象
+		
+		 LocalDateTime localDateTime = LocalDateTime.now();
+		 //直接操作
+        localDateTime = localDateTime.withHour(14);
+        //相对操作
+        localDateTime = localDateTime.plusHours(1);
+        
+6. formatter
+		
+		//date -> string
+        String dateString = localDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        //string -> date
+        localDateTime = LocalDateTime.parse(dateString, DateTimeFormatter.ISO_DATE_TIME);
+        
+        // 自定义formatter
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
