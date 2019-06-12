@@ -3,6 +3,8 @@
 
 > mac ssh 目录 `~/.ssh`,可配置config文件简化登录
 
+2. [非root用户登录](https://blog.csdn.net/jincheng2817/article/details/86660078)
+
 
 # nginx
 - [location](http://nginx.org/en/docs/http/ngx_http_core_module.html#location)
@@ -33,7 +35,7 @@
 
 # 文件上传
 1. 使用webstrom
-2. 使用(filezilla)[https://filezilla-project.org/download.php?type=client]
+2. 使用[filezilla](https://filezilla-project.org/download.php?type=client)
 
 # mysql
 
