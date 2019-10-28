@@ -103,6 +103,18 @@
         andThen.apply(1);
         //f(g(x)) 先调用g后f
         compose.apply(1);
+        
+12. 任何函数式接口都不允许抛出受检异常(checked exception)
+
+		
+		//显式捕捉受检异常,抛出RuntimeException
+		Function<BufferedReader, String> f = (BufferedReader b) -> {
+         try {
+             return b.readLine();
+         }
+         catch(IOException e) {
+             throw new RuntimeException(e);
+			} };
 
 ##4. 流
 1. 流只能遍历一次，遍历完以后说明被消费调了。流中的元素是按需计算的

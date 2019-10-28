@@ -123,7 +123,7 @@
 	6. Action creator returns an 'action' with the fetched data on 'payload' property
 	7. Some reducer sees the action, returns the data off the 'payload'
 	8. Because we generated some new state object, redux/react-redux cause our React app to be rerenderd;
-			
+
 	   
 5. Rules of Reducers
  	
@@ -132,19 +132,34 @@
  	3. Must not return reach 'out of itself' to decide what value to return(不要在reducer中调用api,Dom操作等)
  	4. Must not mutate its input 'state' argument(返回通一个对象，react不会刷新ui，参见reudx源码)
  		
- 		- `state.pop()` -> `state.filter`
- 		- `state.push()` -> `[...state, 'hi']`
- 		- `state[0]` -> `state.map()`
+ 		- `state.pop()` -> `state.filter(el => el !== 'hi')`
+ 		- `state.push('hi')` -> `[...state, 'hi']`
+ 		- `state[0] = 'hi'` -> `state.map(el => el==='hi'? 'bye': el)`
  		
  		- `state.name='Sam'` -> `{...state, name:'Sam'}`
  		- `state.age =30` -> `{...state, age:30}`
- 		- `delete state.name` -> `_.omit(state, 'age')`
+ 		- `delete state.name` -> `{...state, age:undefined}` , `_.omit(state, 'age')`
 
 6. lodash
 	
 	> npm install --save lodash
 	
-	1. _.memoize
+	1. _.memoize 用来避免相同api调用多次
+
+7. reducer
+
+		//redux第一次会调用reudcer初始化store中的数据
+		//orderReducer(undefined, {type: 'xxx'})
+		export const orderReducer = (state= [], action) => {
+		    switch (action.type) {
+		        case ORDER_GET:
+		            return [...action.payload];
+		        default:
+		            return state;
+		
+		    }
+		};
+		
 
 # 7.React Router
 
