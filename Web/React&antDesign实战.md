@@ -71,6 +71,8 @@
  	
  	3. 可以在`package.json`设置启动时候的环境变量
 
+12. chrome 可以安装 `redux dev tool`
+
 # 2.起步
 
 1. [ant design pro](https://pro.ant.design/docs/getting-started-cn)
@@ -89,7 +91,7 @@
 
 # 4.添加页面
 1. 在`config/config.ts`中配置好路由
-2. 在`src/pages`中添加`index.tsx`
+2. 在`src/pages/xx`中添加`index.tsx`
 3. 在`data.d.ts`添加数据类型
 
 		export interface RecipeStepDataType {
@@ -192,7 +194,7 @@
 		}
 		
 		
-	
+7. 在
 		
 ## x.服务端cors配置
 1. implements WebMvcConfigurer
